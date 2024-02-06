@@ -1,0 +1,1559 @@
+{
+	"info": {
+		"_postman_id": "60a58b48-c29b-4d17-bb6d-48bbabbcf0dd",
+		"name": "PetStore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3052214"
+	},
+	"item": [
+		{
+			"name": "Find pet by status",
+			"item": [
+				{
+					"name": "positive",
+					"item": [
+						{
+							"name": "Find pet by status(sold)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response time is less than 200ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/pet/findByStatus?status=sold",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet",
+										"findByStatus"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "sold"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find pet by status(available)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/pet/findByStatus?status=available",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet",
+										"findByStatus"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "available"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find pet by status(pending)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/pet/findByStatus?status=pending",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet",
+										"findByStatus"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "pending"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find pet by status(array)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/pet/findByStatus?status=sold, pending, available",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet",
+										"findByStatus"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "sold, pending, available"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "negative",
+					"item": [
+						{
+							"name": "Find pet by status(incorrect)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/pet/findByStatus?status=qwer",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet",
+										"findByStatus"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "qwer"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find pet by status(empty)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/pet/findByStatus?status=",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet",
+										"findByStatus"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Find pet by ID",
+			"item": [
+				{
+					"name": "positive",
+					"item": [
+						{
+							"name": "Find pet by ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/pet/210220241326",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet",
+										"210220241326"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "negative",
+					"item": [
+						{
+							"name": "Find pet by ID(incorrect ID)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/pet/82292233",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet",
+										"82292233"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find pet by ID(empty ID)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/pet/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find pet by ID(string ID)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/pet/dfgdfgdfg",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet",
+										"dfgdfgdfg"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Add pet",
+			"item": [
+				{
+					"name": "positive",
+					"item": [
+						{
+							"name": "Add pet (status=available)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 210220241326,\n  \"category\": {\n        \"id\": 6444,\n        \"name\": \"Dynamic Branding Facilitator\"\n  },\n  \"name\": \"doggie\",\n  \"photoUrls\": [\n    \"doggie_photo_url\"\n  ],\n  \"tags\": [\n    {\n        \"id\": 3939,\n         \"name\": \"Dynamic Interactions Technician\"\n    }\n  ],\n  \"status\": \"available\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/pet",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add pet (status=sold)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 210220241326,\n  \"category\": {\n        \"id\": 6444,\n        \"name\": \"Dynamic Branding Facilitator\"\n  },\n  \"name\": \"doggie\",\n  \"photoUrls\": [\n    \"doggie_photo_url\"\n  ],\n  \"tags\": [\n    {\n        \"id\": 3939,\n         \"name\": \"Dynamic Interactions Technician\"\n    }\n  ],\n  \"status\": \"sold\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/pet",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add pet (status=pending)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 210220241327,\n  \"category\": {\n        \"id\": 6444,\n        \"name\": \"Dynamic Branding Facilitator\"\n  },\n  \"name\": \"doggie\",\n  \"photoUrls\": [\n    \"doggie_photo_url\"\n  ],\n  \"tags\": [\n    {\n        \"id\": 3939,\n         \"name\": \"Dynamic Interactions Technician\"\n    }\n  ],\n  \"status\": \"pending\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/pet",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add pet (status=array)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 210220241326,\n  \"category\": {\n        \"id\": 6444,\n        \"name\": \"Dynamic Branding Facilitator\"\n  },\n  \"name\": \"doggie\",\n  \"photoUrls\": [\n    \"doggie_photo_url\"\n  ],\n  \"tags\": [\n    {\n        \"id\": 3939,\n         \"name\": \"Dynamic Interactions Technician\"\n    }\n  ],\n  \"status\": \"available, sold, pending\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/pet",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "negative",
+					"item": [
+						{
+							"name": "Add pet (non unique id)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 210220241326,\n  \"category\": {\n        \"id\": 6444,\n        \"name\": \"Dynamic Branding Facilitator\"\n  },\n  \"name\": \"doggie\",\n  \"photoUrls\": [\n    \"doggie_photo_url\"\n  ],\n  \"tags\": [\n    {\n        \"id\": 3939,\n         \"name\": \"Dynamic Interactions Technician\"\n    }\n  ],\n  \"status\": \"pending\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/pet",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add pet (missed id)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"category\": {\n        \"id\": 6444,\n        \"name\": \"Dynamic Branding Facilitator\"\n  },\n  \"name\": \"doggie\",\n  \"photoUrls\": [\n    \"doggie_photo_url\"\n  ],\n  \"tags\": [\n    {\n        \"id\": 3939,\n         \"name\": \"Dynamic Interactions Technician\"\n    }\n  ],\n  \"status\": \"pending\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/pet",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add pet (string id)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"fsfdfdf\",\n  \"category\": {\n        \"id\": 6444,\n        \"name\": \"Dynamic Branding Facilitator\"\n  },\n  \"name\": \"doggie\",\n  \"photoUrls\": [\n    \"doggie_photo_url\"\n  ],\n  \"tags\": [\n    {\n        \"id\": 3939,\n         \"name\": \"Dynamic Interactions Technician\"\n    }\n  ],\n  \"status\": \"pending\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/pet",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add pet (missed category_id)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 210220241326,\n  \"category\": {\n        \"name\": \"Dynamic Branding Facilitator\"\n  },\n  \"name\": \"doggie\",\n  \"photoUrls\": [\n    \"doggie_photo_url\"\n  ],\n  \"tags\": [\n    {\n        \"id\": 3939,\n         \"name\": \"Dynamic Interactions Technician\"\n    }\n  ],\n  \"status\": \"pending\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/pet",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add pet (missed category_name)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 210220241326,\n  \"category\": {\n        \"id\": 6444\n  },\n  \"name\": \"doggie\",\n  \"photoUrls\": [\n    \"doggie_photo_url\"\n  ],\n  \"tags\": [\n    {\n        \"id\": 3939,\n         \"name\": \"Dynamic Interactions Technician\"\n    }\n  ],\n  \"status\": \"pending\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/pet",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add pet (empty name)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 210220241326,\n  \"category\": {\n        \"id\": 6444,\n        \"name\": \"Dynamic Branding Facilitator\"\n  },\n  \"name\": \"\",\n  \"photoUrls\": [\n    \"doggie_photo_url\"\n  ],\n  \"tags\": [\n    {\n        \"id\": 3939,\n         \"name\": \"Dynamic Interactions Technician\"\n    }\n  ],\n  \"status\": \"pending\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/pet",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add pet (missed name)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 210220241326,\n  \"category\": {\n        \"id\": 6444,\n        \"name\": \"Dynamic Branding Facilitator\"\n  },\n  \"photoUrls\": [\n    \"doggie_photo_url\"\n  ],\n  \"tags\": [\n    {\n        \"id\": 3939,\n         \"name\": \"Dynamic Interactions Technician\"\n    }\n  ],\n  \"status\": \"pending\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/pet",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add pet (incorrect status)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 210220241326,\n  \"category\": {\n        \"id\": 6444,\n        \"name\": \"Dynamic Branding Facilitator\"\n  },\n  \"name\": \"\",\n  \"photoUrls\": [\n    \"doggie_photo_url\"\n  ],\n  \"tags\": [\n    {\n        \"id\": 3939,\n         \"name\": \"Dynamic Interactions Technician\"\n    }\n  ],\n  \"status\": \"pending123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/pet",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Update pet",
+			"item": [
+				{
+					"name": "positive",
+					"item": [
+						{
+							"name": "Update pet",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 210220241326,\n  \"category\": {\n        \"id\": 6444,\n        \"name\": \"Dynamic Branding Facilitator\"\n  },\n  \"name\": \"doggie\",\n  \"photoUrls\": [\n    \"doggie_photo_url\"\n  ],\n  \"tags\": [\n    {\n        \"id\": 3939,\n         \"name\": \"Dynamic Interactions Technician\"\n    }\n  ],\n  \"status\": \"available\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/pet",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "negative",
+					"item": [
+						{
+							"name": "Update pet (id is not exist)",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 2102230241326,\n  \"category\": {\n        \"id\": 6444,\n        \"name\": \"Dynamic Branding Facilitator\"\n  },\n  \"name\": \"doggie\",\n  \"photoUrls\": [\n    \"doggie_photo_url\"\n  ],\n  \"tags\": [\n    {\n        \"id\": 3939,\n         \"name\": \"Dynamic Interactions Technician\"\n    }\n  ],\n  \"status\": \"pending\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/pet",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update pet (missed id)",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"category\": {\n        \"id\": 6444,\n        \"name\": \"Dynamic Branding Facilitator\"\n  },\n  \"name\": \"doggie\",\n  \"photoUrls\": [\n    \"doggie_photo_url\"\n  ],\n  \"tags\": [\n    {\n        \"id\": 3939,\n         \"name\": \"Dynamic Interactions Technician\"\n    }\n  ],\n  \"status\": \"pending\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/pet",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update pet (string id)",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"fsfdfdf\",\n  \"category\": {\n        \"id\": 6444,\n        \"name\": \"Dynamic Branding Facilitator\"\n  },\n  \"name\": \"doggie\",\n  \"photoUrls\": [\n    \"doggie_photo_url\"\n  ],\n  \"tags\": [\n    {\n        \"id\": 3939,\n         \"name\": \"Dynamic Interactions Technician\"\n    }\n  ],\n  \"status\": \"pending\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/pet",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update pet (missed category_id)",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 210220241326,\n  \"category\": {\n        \"name\": \"Dynamic Branding Facilitator\"\n  },\n  \"name\": \"doggie\",\n  \"photoUrls\": [\n    \"doggie_photo_url\"\n  ],\n  \"tags\": [\n    {\n        \"id\": 3939,\n         \"name\": \"Dynamic Interactions Technician\"\n    }\n  ],\n  \"status\": \"pending\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/pet",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update pet (missed category_name)",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 210220241326,\n  \"category\": {\n        \"id\": 6444\n  },\n  \"name\": \"doggie\",\n  \"photoUrls\": [\n    \"doggie_photo_url\"\n  ],\n  \"tags\": [\n    {\n        \"id\": 3939,\n         \"name\": \"Dynamic Interactions Technician\"\n    }\n  ],\n  \"status\": \"pending\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/pet",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update pet (empty name)",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 210220241326,\n  \"category\": {\n        \"id\": 6444,\n        \"name\": \"Dynamic Branding Facilitator\"\n  },\n  \"name\": \"\",\n  \"photoUrls\": [\n    \"doggie_photo_url\"\n  ],\n  \"tags\": [\n    {\n        \"id\": 3939,\n         \"name\": \"Dynamic Interactions Technician\"\n    }\n  ],\n  \"status\": \"pending\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/pet",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update pet (missed name)",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 210220241326,\n  \"category\": {\n        \"id\": 6444,\n        \"name\": \"Dynamic Branding Facilitator\"\n  },\n  \"photoUrls\": [\n    \"doggie_photo_url\"\n  ],\n  \"tags\": [\n    {\n        \"id\": 3939,\n         \"name\": \"Dynamic Interactions Technician\"\n    }\n  ],\n  \"status\": \"pending\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/pet",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update pet (incorrect status)",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 210220241326,\n  \"category\": {\n        \"id\": 6444,\n        \"name\": \"Dynamic Branding Facilitator\"\n  },\n  \"name\": \"\",\n  \"photoUrls\": [\n    \"doggie_photo_url\"\n  ],\n  \"tags\": [\n    {\n        \"id\": 3939,\n         \"name\": \"Dynamic Interactions Technician\"\n    }\n  ],\n  \"status\": \"pending123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/pet",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Update pet with form data",
+			"item": [
+				{
+					"name": "negative",
+					"item": [
+						{
+							"name": "Update pet with form data (ID is not exist)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "a",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "sold",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/pet/2",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update pet with form data (ID is empty)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "a",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "sold",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/pet/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update pet with form data (ID is out of border type)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "a",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "sold",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/pet/2333454634563456345634563456435643563456435643564356456",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet",
+										"2333454634563456345634563456435643563456435643564356456"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update pet with form data (name is too long)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Anna's dogAnna's dogAnna's dogAnna's dogAnna's dogAnna's dogAnna's dogAnna's dogAnna's dogAnna's dogAnna's dogAnna's dog",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "sold",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/pet/210220241326",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet",
+										"210220241326"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update pet with form data (name is too short)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "a",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "sold",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/pet/210220241326",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet",
+										"210220241326"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update pet with form data (status is not from the list)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "awww",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "incorrect",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/pet/210220241326",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet",
+										"210220241326"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update pet with form data (status is absent)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "awww",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "incorrect",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/pet/210220241326",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet",
+										"210220241326"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update pet with form data (name is absent)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "awww",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "incorrect",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/pet/210220241326",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet",
+										"210220241326"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update pet with form data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Anna's dog",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "sold",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/pet/210220241326",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pet",
+								"210220241326"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Upload an image",
+			"item": [
+				{
+					"name": "negative",
+					"item": [
+						{
+							"name": "Upload image(empty image)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "additionalMetadata",
+											"value": "image png",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/pet/210220241326/uploadImage",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet",
+										"210220241326",
+										"uploadImage"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Upload image (large image)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "additionalMetadata",
+											"value": "image png",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "cr9PxOG62/2707 owner anna edit.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/pet/210220241326/uploadImage",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet",
+										"210220241326",
+										"uploadImage"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Upload image (incorrect ID)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "additionalMetadata",
+											"value": "image png",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "cr9PxOG62/2707 owner anna edit.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/pet/2102202413/uploadImage",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet",
+										"2102202413",
+										"uploadImage"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Upload image (missed ID)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "additionalMetadata",
+											"value": "image png",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "cr9PxOG62/2707 owner anna edit.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/pet/uploadImage",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet",
+										"uploadImage"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Upload image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "additionalMetadata",
+									"value": "image png",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "cr9PxOG62/2707 owner anna edit.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/pet/210220241326/uploadImage",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pet",
+								"210220241326",
+								"uploadImage"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Delete pet",
+			"item": [
+				{
+					"name": "negative",
+					"item": [
+						{
+							"name": "Delete pet(incorrect iD)",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "api_key",
+										"value": "special-key",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/pet/210220241326",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet",
+										"210220241326"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete pet(delete the same iD)",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/pet/210220241326?api_key=special-key",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"pet",
+										"210220241326"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "special-key"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete pet",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "special-key",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/pet/210220241326",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pet",
+								"210220241326"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://petstore.swagger.io/v2",
+			"type": "string"
+		}
+	]
+}
