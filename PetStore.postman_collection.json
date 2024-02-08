@@ -7,6 +7,230 @@
 	},
 	"item": [
 		{
+			"name": "CRUD",
+			"item": [
+				{
+					"name": "Add pet (status=available)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"response = pm.response.json();",
+									"savedData = response;",
+									"pm.collectionVariables.set(\"id\", response.id);",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 210220241326,\n  \"category\": {\n        \"id\": 6444,\n        \"name\": \"Dynamic Branding Facilitator\"\n  },\n  \"name\": \"doggie\",\n  \"photoUrls\": [\n    \"doggie_photo_url\"\n  ],\n  \"tags\": [\n    {\n        \"id\": 3939,\n         \"name\": \"Dynamic Interactions Technician\"\n    }\n  ],\n  \"status\": \"available\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/pet",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find pet by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/pet/{{id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pet",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update pet",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": {{id}},\n  \"category\": {\n        \"id\": 6444,\n        \"name\": \"Dynamic Branding Facilitator_edit\"\n  },\n  \"name\": \"annas_doggie\",\n  \"photoUrls\": [\n    \"doggie_photo_url\"\n  ],\n  \"tags\": [\n    {\n        \"id\": 3939,\n         \"name\": \"Dynamic Interactions Technician_edit\"\n    }\n  ],\n  \"status\": \"available\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/pet",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find updated pet by ID -> verify name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"",
+									"",
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.name).to.eql(\"annas_doggie\");",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/pet/{{id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pet",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete pet",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "special-key",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/pet/{{id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pet",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find pet by ID - verify pet is deleted",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\"Pet not found\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/pet/{{id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pet",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Find pet by status",
 			"item": [
 				{
@@ -1553,6 +1777,11 @@
 		{
 			"key": "base_url",
 			"value": "https://petstore.swagger.io/v2",
+			"type": "string"
+		},
+		{
+			"key": "id",
+			"value": "",
 			"type": "string"
 		}
 	]
